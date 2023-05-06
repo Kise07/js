@@ -6,22 +6,22 @@ var a; // int string float ?(boolean)
 
 // variable initialization
 a = 20;
-console.log(typeof a);
-console.log(a);
+// console.log(typeof a);
+// console.log(a);
 
 a = 'hello'; // re-initialize of variable 'a'
-console.log(a);
+// console.log(a);
 
 // typeof operator -> it tells us the type of data stored in a variable
-console.log(typeof a);
+// console.log(typeof a);
 
 a = true;
 console.log(a);
-console.log(typeof a);
+// console.log(typeof a);
 
 a = null;
-console.log(a);
-console.log(typeof a);
+// console.log(a);
+// console.log(typeof a);
 
 // Number
 var num = 10;
@@ -54,16 +54,16 @@ var num = 4500;
 
 // redeclaration is allowed
 var r = 'hello';
-console.log(r);
+// console.log(r);
 
 var r = 100;
-console.log(r);
+// console.log(r);
 
 // overcome krne ke liye
 
 // let keyword is used
 let l = 100;
-console.log(l);
+// console.log(l);
 
 // let l = '200';
 // console.log(l); // Error 1 - SyntaxError: Identifier 'l' has already been declared
@@ -81,10 +81,34 @@ for (var i = 0; i < num; i++) {
     }
 }
 
+// 2nd problem with var keyword
+// var keyword is function scoped in case of function else it is global scope
+// let keyword is black scoped
+
+let j = 20;
+for (var i = 0; i < num; i++) {
+    let j = 20;
+    if (i % 2 == 0) {
+        let hello = 1000;
+        console.log(i);
+        console.log(hello);
+    }
+    
+    console.log('inner' + j);
+}
+console.log('outer' + j);
+console.log(`value of i is " ${i}`);
+console.log(hello); // error dega hello is not defined
+
+// {
+
+//    //this space between opening and closing of curly braces is a block
+// }
+
 // const keyword
 const a = 2;
-console.log(a);
+// console.log(a);
 // na hi redeclare na hi re-initialize
 // const a = 5;
 a = 4; // Error 2 - TypeError: Assignment to constant variable.
-console.log('hey');
+// console.log('hey');
