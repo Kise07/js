@@ -7,3 +7,9 @@
 // Boolean
 // String
 ```
+
+* Basics: 
+```js
+// problem with var keyword in js
+// Errors - SyntaxError & TypeError using 'const' keyword
+```
