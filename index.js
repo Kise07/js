@@ -47,4 +47,5 @@ var b = 'I hope you are able to grasp the concepts';
 console.log(b);
 
 var num = 4500;
+// ${}
 console.log(`half of ${num} id ${num / 2}`);
