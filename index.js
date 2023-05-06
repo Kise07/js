@@ -22,3 +22,22 @@ console.log(typeof a);
 a = null;
 console.log(a);
 console.log(typeof a);
+
+// Number
+var num = 10;
+console.log(num);
+var float = 2.4;
+console.log(float);
+
+// Boolean
+var t = true;
+var f = false;
+console.log(t);
+console.log(f);
+
+// String
+// ' ', " ", ` ` -> single quotes, double quotes, backtick
+var str = 'a';
+console.log(typeof str);
+str = 'How are you doing ?';
+console.log(str);
