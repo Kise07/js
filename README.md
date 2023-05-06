@@ -13,3 +13,10 @@
 // problem with var keyword in js
 // Errors - SyntaxError & TypeError using 'const' keyword
 ```
+
+* Scoping:
+```js
+{
+    let a = 20;
+}
+```
