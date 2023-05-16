@@ -40,4 +40,27 @@ for (let i = 0; i < filesArr.length; i++) {
 // console.log(content);
 
 let contentArr = content.split("\n");
-console.log(contentArr);
+console.table(contentArr);
+
+// =======> -s command -> checking if -s is present or not <=======
+let isSpresent = optionsArr.includes("-s");
+// -s command instructions:
+if (isSpresent) {
+    for (let i = 1; i < contentArr.length; i++) {
+        if (contentArr[i] == "" && contentArr[i - 1] == "") {
+            contentArr[i] = null;
+        } else if (contentArr[i] == "" && contentArr[i - 1] == null) {
+            contentArr[i] = null;
+        }
+    }
+    console.table(contentArr);
+    // tempArr for storing contents of -s command
+    let tempArr = [];
+    // push everything in tempArr except null values
+    for (let i = 0; i < contentArr.length; i++) {
+        if (contentArr[i] != null) {
+            tempArr.push(contentArr[i]);
+        }
+    }
+    console.log("data after removing extra lines\n", tempArr);
+}
