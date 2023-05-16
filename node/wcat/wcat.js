@@ -27,7 +27,8 @@ for (let i = 0; i < filesArr.length; i++) {
 	let doesExist = fs.existsSync(filesArr[i]);
 	if (!doesExist) {
 		console.log('One or more Files does not exits');
-		return;
+		// return; `Alternation of return here! {process.exit()}`
+		process.exit(); // Ends the process with specified code
 	}
 }
 
