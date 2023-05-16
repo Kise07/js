@@ -43,6 +43,8 @@ let contentArr = content.split('\n');
 console.table(contentArr);
 
 // =======> -s command -> checking if -s is present or not <=======
+let tempArr = []; // tempArr for storing contents of -s command
+
 let isSpresent = optionsArr.includes('-s');
 // -s command instructions:
 if (isSpresent) {
@@ -54,8 +56,7 @@ if (isSpresent) {
 		}
 	}
 	console.table(contentArr);
-	// tempArr for storing contents of -s command
-	let tempArr = [];
+	
 	// push everything in tempArr except null values
 	for (let i = 0; i < contentArr.length; i++) {
 		if (contentArr[i] != null) {
@@ -65,11 +66,11 @@ if (isSpresent) {
 	console.log('data after removing extra lines\n', tempArr);
 }
 
-contentArr = tempArr;
+contentArr = tempArr; // storing ContentArr in tempArr
 
 // -n & -b commands features instructions
 let indexOfN = optionsArr.indexOf('-n');
-let indexOfB = optionsArr.indexOf('B');
+let indexOfB = optionsArr.indexOf('-b');
 // if -n OR -b is not found, return -1
 
 // checking for `first come, first server` either -n OR -b
@@ -92,17 +93,27 @@ if (indexOfN != -1 && indexOfB != -1) {
 
 // calling of function by evaluating finalOption
 if (finalOption == "-n") {
-    modifyContentByN();
+    modifyContentByN(); // -n function will be called here!
 } else if (finalOption == "-b") {
-    modifyContentByB();
+    modifyContentByB(); // -b function will be called here!
 }
 
 // -n content function
 function modifyContentByN() {
-
+	for (let i = 0; i < contentArr.length; i++) {
+		contentArr[i] = (i + 1) + ") " + contentArr[i]; // numbering all new Lines
+	}
 }
+
+console.log(contentArr);
 
 // -b content function
 function modifyContentByB() {
-
+	let count = 1; // count for Code's Lines
+	for (let i = 0; i < contentArr.length; i++) {
+		if (contentArr[i] != "") { // checking if the current line is empty or not
+			contentArr[i] = count + ") " + contentArr[i]; // numbering Code's Lines
+			count++;
+		}
+	}
 }
