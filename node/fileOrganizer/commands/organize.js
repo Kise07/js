@@ -30,13 +30,41 @@ function organize(srcPath) {
 	// 3. scan the entire srcPath(downloads folder in this case)
 	// Reads the contents of the directory. ->basically read the names of files present in directory
 	let allFiles = fs.readdirSync(srcPath);
-	console.log(allFiles);
+	// console.log(allFiles);
 
 	// 4. traverse over all the files and classify them on the basis of their extensions eg.(.pdf or .mp3)
 	for (let i = 0; i < allFiles.length; i++) {
 		// let ext = allFiles[i].split(".")[1];
-		let ext = path.extname(allFiles[i]);
-		console.log(ext);
+		let fullPathOfFile = path.join(srcPath, allFiles[i]);
+		// console.log(fullPathOfFile);
+
+		// 1. check if it is a file or folder
+		let isFile = fs.lstatSync(fullPathOfFile).isFile(); // true -> file hai to or false -> agar folder h
+		// extname returns the extensions of the files
+		console.log(allFiles[i] + " is " + isFile);
+		if (isFile) {
+			// 1.1 get ext name
+		}
+		let ext = path.extname(allFiles[i]).split(".")[1];
+		// console.log(ext);
+
+		// 1.2 get folder name from extension
+		let folderName = getFolderName(ext); // archives
+
+		// 1.3 copy from src folder (srcPath) and paste in dest folder (folder_name e.g. document, media, etc)
+					// copy,    kya krna h,     paste  
+		copyFileToDest(srcPath, fullPathOfFile, folderName);
+	}
+
+	function getFolderName(srcPath) {
+
+		// magic
+		return folderName;
+	}
+
+	function copyFileToDest(srcPath, fullPathOfFile, folderName) {
+
+		// magic
 	}
 }
 
